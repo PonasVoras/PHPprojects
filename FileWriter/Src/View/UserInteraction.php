@@ -1,12 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dell
- * Date: 9/17/2019
- * Time: 10:57 AM
- */
+
+namespace FileWriter\View;
 
 class UserInteraction
 {
-
+    public function __construct()
+    {
+        echo "Hoolas";
+    }
 }

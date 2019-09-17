@@ -1,15 +1,17 @@
 <?php
 
-use FileWriter\Config\Config;
-use FileWriter\Utils\AutoLoader;
+use FileWriter\Controller\MainController;
+use FileWriter\Loader\AutoLoader;
+use FileWriter\Utils\Config;
 
-require_once "Utils/AutoLoader.php";
+require_once "Loader/AutoLoader.php";
 $loader = new AutoLoader();
 $loader->register();
 $loader->addNamespace('FileWriter', __DIR__ . '/Src');
-$loader->addNamespace('FileWriter', __DIR__ . '/Tests');
-$loader->addNamespace('FileWriter', __DIR__ . '/Utils');
-$loader->addNamespace('FileWriter', __DIR__ . '/Bin');
+$loader->addNamespace('FileWriter\Utils', __DIR__ . '/Utils');
+$loader->addNamespace('FileWriter\Tests', __DIR__ . '/Tests');
 
 new Config();
+new MainController();
+
 // TODO : Call controller and pass console variables

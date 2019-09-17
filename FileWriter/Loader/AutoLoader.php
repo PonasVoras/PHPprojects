@@ -1,6 +1,6 @@
 <?php
 
-namespace FileWriter\Utils;
+namespace FileWriter\Loader;
 
 class AutoLoader
 {

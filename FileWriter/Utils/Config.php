@@ -1,10 +1,11 @@
 <?php
-namespace FileWriter\Config;
+
+namespace FileWriter\Utils;
 
 class Config
 {
     public function __construct()
     {
-        print 'Autoloader is working';
+        echo "I am working";
     }
 }
