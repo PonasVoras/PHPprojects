@@ -4,7 +4,7 @@ use FileWriter\Controller\MainController;
 use FileWriter\Loader\AutoLoader;
 use FileWriter\Utils\Config;
 
-require_once "Loader/AutoLoader.php";
+require_once "Utils/AutoLoader.php";
 $loader = new AutoLoader();
 $loader->register();
 $loader->addNamespace('FileWriter', __DIR__ . '/Src');

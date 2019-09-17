@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5be1bf32-c098-44a2-b856-1e38963505cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FileWriter/Src/Controller/MainController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileWriter/Utils/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileWriter/FileWriter.php" beforeDir="false" afterPath="$PROJECT_DIR$/FileWriter/FileWriter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileWriter/Src/Config/Config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileWriter/Src/View/UserInteraction.php" beforeDir="false" afterPath="$PROJECT_DIR$/FileWriter/Src/View/UserInteraction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileWriter/Utils/AutoLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/FileWriter/Loader/AutoLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileWriter/Utils/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/FileWriter/Utils/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Bin/FileWriter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Config/Config.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/InputFiles/userFile.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Load.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Src/Utils/Validator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Src/View/UserInteraction.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Utils/AutoLoader.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/writio/Utils/Logger.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileWriter/Loader/AutoLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/FileWriter/Utils/AutoLoader.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FileWriter/FileWriter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+            <state relative-caret-position="272">
+              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
               <folding>
                 <element signature="e#7#48#0#PHP" expanded="true" />
               </folding>
@@ -118,12 +102,6 @@
               <item name="PHPprojects" type="b2602c69:ProjectViewProjectNode" />
               <item name="PHPprojects" type="462c0819:PsiDirectoryNode" />
               <item name="FileWriter" type="462c0819:PsiDirectoryNode" />
-              <item name="Loader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PHPprojects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PHPprojects" type="462c0819:PsiDirectoryNode" />
-              <item name="FileWriter" type="462c0819:PsiDirectoryNode" />
               <item name="Src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -155,11 +133,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\Desktop\New folder\PHPprojects\FileWriter\Utils" />
       <recent name="C:\Users\Dell\Desktop\New folder\PHPprojects\FileWriter\Loader" />
       <recent name="C:\Users\Dell\Desktop\New folder\PHPprojects\FileWriter" />
       <recent name="C:\Users\Dell\Desktop\New folder\PHPprojects\FileWriter\Bin" />
       <recent name="C:\Users\Dell\Desktop\New folder\PHPprojects\FileWriter\Src" />
-      <recent name="C:\Users\Dell\Desktop\New folder\PHPprojects\FileWriter\Src\Main" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -185,18 +163,18 @@
       <option name="presentableId" value="Default" />
       <updated>1568706508600</updated>
       <workItem from="1568706509964" duration="4406000" />
-      <workItem from="1568711694693" duration="8863000" />
+      <workItem from="1568711694693" duration="9035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13269000" />
+    <option name="totallyTimeSpent" value="13441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1616" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29434448" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29434448" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -209,7 +187,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4993573" visible="true" weight="0.32981783" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993573" visible="true" weight="0.32981783" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" weight="0.32981783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -324,7 +302,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FileWriter/Loader/AutoLoader.php">
+    <entry file="file://$PROJECT_DIR$/FileWriter/Utils/AutoLoader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
@@ -347,8 +325,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FileWriter/FileWriter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+        <state relative-caret-position="272">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding>
             <element signature="e#7#48#0#PHP" expanded="true" />
           </folding>
