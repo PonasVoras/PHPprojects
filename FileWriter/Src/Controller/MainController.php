@@ -1,12 +1,12 @@
 <?php
 namespace FileWriter\Controller;
 
-use FileWriter\View\UserInteraction;
+use FileWriter\View\MainView;
 
 class MainController
 {
     public function __construct()
     {
-        new UserInteraction();
+        new MainView();
     }
 }
