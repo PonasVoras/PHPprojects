@@ -7,7 +7,7 @@ use FileWriter\HexagonWriter\Domain\CommandInterface;
 use FileWriter\HexagonWriter\Domain\WriteFormatManagement\FormatFactory;
 use Utils\Config;
 
-class WriteCommandHandler implements CommandHandlerInterface
+class WriteConfigCommandHandler implements CommandHandlerInterface
 {
     private $config;
     private $formatFactory;
@@ -25,17 +25,15 @@ class WriteCommandHandler implements CommandHandlerInterface
      */
     public function handle(CommandInterface $command)
     {
+        $writeFilename = $this->config->getOutputFileBaseDir();
         $commandName = get_class($command);
         if (class_exists($commandName)){
             $command = new $commandName;
         } else {
             throw new Exception($commandName . "command does not exist");
         }
-
-        $dataToWrite = $command->data();
-        $format = $this->config->getWriteFormat();
-        $writeFormat = $this->formatFactory->build($format);
-        $writeFormat->save($dataToWrite);
+        $write = $this->formatFactory->build('Json');
+        $write->save();
     }
 
     //TODO understand how to handle the command

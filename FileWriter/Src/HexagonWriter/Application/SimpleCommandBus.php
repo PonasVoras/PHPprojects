@@ -33,13 +33,18 @@ class SimpleCommandBus implements CommandBusInterface
      */
     public function resolveHandler(CommandInterface $command)
     {
+        // TODO make it use the the factory
         $commandName = get_class($command);
+        $commandName = explode("\\", $commandName);
+        $commandName = array_reverse($commandName)[0];
+
         $handlerPrefix = $this->config->getHandlerClassPrefix();
-        $handlerName = $handlerPrefix . $commandName . 'Handler';
+        $handlerName = $handlerPrefix .  $commandName . 'Handler';
+
         if (class_exists($handlerName)){
             return new $handlerName;
         } else {
-            throw new Exception($handlerName . 'Handler does not exist');
+            throw new Exception($handlerName . ' Handler does not exist');
         }
 
     }

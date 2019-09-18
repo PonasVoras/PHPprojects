@@ -3,5 +3,5 @@ namespace FileWriter\HexagonWriter\Domain\WriteFormatManagement;
 
 interface WriteInterface
 {
-    public function save();
+    public function save(string $data);
 }

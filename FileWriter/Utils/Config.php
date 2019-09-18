@@ -1,6 +1,7 @@
 <?php
 namespace Utils;
 
+use DateTime;
 use FileWriter\Utils\Validator;
 
 class Config
@@ -9,8 +10,10 @@ class Config
     private $validator;
 
     //Config parameter constants
-    const INPUT_FILE ="input_file_base_dir";
-    const OUTPUT_FILE = "output_file_base_dir";
+    const CONFIGURATION_TIME = 'configuration_time';
+    const FILENAME = 'fileName';
+    const INPUT_FILE_DIR ="input_file_base_dir";
+    const OUTPUT_FILE_DIR = "output_file_base_dir";
     const WRITE_FORMAT = "write_format";
     const WRITE_FORMAT_CLASS_PREFIX = "write_format_class_prefix";
     const HANDLER_CLASS_PREFIX =  "handler_class_prefix";
@@ -22,17 +25,26 @@ class Config
     }
 
     /**
-     * @param string $requiredParam
+     * @param string $requiredParameter
      * @return mixed
      * @throws \Exception
      */
-    private function parseConfig(string $requiredParam)
+    private function parseConfig(string $requiredParameter)
     {
         $this->validator->validateFileExists(self::CONFIG_FILE);
         $configFile = file_get_contents(self::CONFIG_FILE);
         $configValue = json_decode($configFile, true);
-        $configValue = $configValue[$requiredParam];
+        $configValue = $configValue[$requiredParameter];
         return $configValue;
+    }
+
+    private function configurate(string $parameter,string $value)
+    {
+        $configFile = file_get_contents(self::CONFIG_FILE);
+        $configFile= json_decode($configFile, true);
+        $configFile[$parameter] = $value;
+        $configFile = json_encode($configFile);
+        file_put_contents(self::CONFIG_FILE, $configFile);
     }
 
     /**
@@ -41,7 +53,7 @@ class Config
      */
     public function getInputFileBaseDir(): string
     {
-        return $this->parseConfig(self::INPUT_FILE);
+        return $this->parseConfig(self::INPUT_FILE_DIR);
     }
 
     /**
@@ -50,7 +62,7 @@ class Config
      */
     public function getOutputFileBaseDir(): string
     {
-        return $this->parseConfig(self::OUTPUT_FILE);
+        return $this->parseConfig(self::OUTPUT_FILE_DIR);
     }
 
     /**
@@ -86,6 +98,23 @@ class Config
     public function getCommandClassPrefix(): string
     {
         return $this->parseConfig(self::COMMAND_CLASS_PREFIX);
+    }
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function getFileName(): string
+    {
+        return $this->parseConfig(self::FILENAME);
+    }
+
+    public function setFileName(string $fileName)
+    {
+        $this->configurate(self::FILENAME, $fileName);
+        $dateTime = new DateTime();
+        $dateTime = $dateTime->format('Y-m-d H:i:s');
+        $this->configurate(self::CONFIGURATION_TIME, $dateTime);
     }
 
 }

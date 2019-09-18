@@ -2,6 +2,7 @@
 namespace FileWriter\HexagonWriter\Domain\WriteFormatManagement;
 
 use FileWriter\Utils\FileOperations;
+use Utils\Config;
 
 class WriteXml implements WriteInterface
 {
@@ -10,11 +11,15 @@ class WriteXml implements WriteInterface
     public function __construct()
     {
         $this->fileOperations = new FileOperations();
+        $this->config = new Config();
         echo "I will save Xml";
     }
 
-    public function save()
+    public function save(string $data)
     {
-        $this->fileOperations->writeFile("I was an xml");
+        $filePath = $this->config
+                ->getOutputFileBaseDir()
+            . $this->config->getFileName() . ".xml";
+        $this->fileOperations->writeFile($filePath,$data);
     }
 }
