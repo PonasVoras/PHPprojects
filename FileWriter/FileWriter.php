@@ -12,6 +12,7 @@ $loader->addNamespace('Utils', __DIR__ . '/Utils');
 $loader->addNamespace('Tests', __DIR__ . '/Tests');
 
 new Config();
-new MainController();
+$controller = new MainController();
+$controller->consoleInput($argv);
 
 // TODO : Call controller and pass console variabless

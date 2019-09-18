@@ -4,13 +4,17 @@ namespace FileWriter\View;
 
 class MainView
 {
-    public function processing()
+    public function processing(
+        string $fileName,
+        string $fileFormat)
     {
-        echo 'Writing operation in process ...';
+        echo "\n".'FileName: ' . $fileName;
+        echo "\n".'FileFormat: ' . $fileFormat;
+        echo "\n".'Writing operation in process ...';
     }
 
     public function success()
     {
-        echo "Writing completed with success";
+        echo "\n"."Writing completed with success";
     }
 }
