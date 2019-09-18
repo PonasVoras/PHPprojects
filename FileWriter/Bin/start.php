@@ -1,6 +1,7 @@
 <?php
 
-use FileWriter\Controller\MainController;
+
+use FileWriter\Console\Console;
 use Utils\AutoLoader;
 
 require_once "../Utils/AutoLoader.php";
@@ -10,5 +11,8 @@ $loader->addNamespace('FileWriter', __DIR__ . '/../Src');
 $loader->addNamespace('Utils', __DIR__ . '/../Utils');
 $loader->addNamespace('Tests', __DIR__ . '/../Tests');
 
-$controller = new MainController();
-$controller->consoleInput($argv);
+/**
+ * Starts a new console application
+ */
+$console = new Console();
+$console->handle();

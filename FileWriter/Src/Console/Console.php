@@ -1,12 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dell
- * Date: 9/18/2019
- * Time: 12:30 PM
- */
+namespace FileWriter\Console;
+
+use FileWriter\Controller\MainController;
+use Utils\InteractiveCli;
 
 class Console
 {
+    protected $controller;
+    protected $cli;
 
+    /**
+     * Initializes the controller that is going to be used
+     */
+    public function __construct()
+    {
+        $this->controller = new MainController();
+        $this->cli = new InteractiveCli();
+    }
+
+    /**
+     * Handles the cli.
+     */
+    public function handle()
+    {
+        $this->controller->beginingAction();
+        $data = $this->cli->requestData();
+        $this->controller->processingAction($data);
+        $this->controller->successAction();
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace FileWriter\Controller\Handlers;
 
-use FileWriter\Controller\Interfaces\HandleFileInterface;
+use FileWriter\Controller\HandleFileInterface;
 
 class HandleCsvFile implements HandleFileInterface
 {

@@ -1,12 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dell
- * Date: 9/17/2019
- * Time: 11:23 AM
- */
+namespace FileWriter\Utils;
 
 class Validator
 {
-
+    //TODO validate parameters
+    public function validateParameters(array $parameters)
+    {
+        if(empty($parameters) || empty($parameters[0]) || empty($parameters[1])){
+            throw new \Exception('Invalid input parameters');
+        }
+    }
 }

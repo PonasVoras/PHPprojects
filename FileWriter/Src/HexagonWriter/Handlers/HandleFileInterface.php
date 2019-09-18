@@ -1,5 +1,5 @@
 <?php
-namespace FileWriter\Controller\Interfaces;
+namespace FileWriter\HexagonWriter\Interfaces;
 
 interface HandleFileInterface
 {
