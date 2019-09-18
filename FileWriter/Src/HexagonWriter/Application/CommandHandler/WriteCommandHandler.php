@@ -24,6 +24,8 @@ class WriteCommandHandler implements CommandHandlerInterface
      */
     public function handle(CommandInterface $command)
     {
+        $commandName = get_class($command);
+
         $write = $this->formatFactory->build($command);
         $write->save();
     }

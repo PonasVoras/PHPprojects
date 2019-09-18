@@ -3,6 +3,7 @@
   "output_file_base_dir": "C:\\Users\\Dell\\Desktop\\New folder\\PHPprojects\\FileWriter\\Src\\OutputFiles\\",
   "write_format_class_prefix": "FileWriter\\HexagonWriter\\Domain\\WriteFormatManagement\\",
   "handler_class_prefix": "FileWriter\\HexagonWriter\\Application\\CommandHandler\\",
+  "command_class_prefix": "FileWriter\\HexagonWriter\\Application\\Command\\",
   "write_formats_available" : ["Json", "Csv", "Xml"],
   "write_format" : "Json"
 }
