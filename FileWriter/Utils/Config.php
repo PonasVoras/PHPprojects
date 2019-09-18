@@ -13,6 +13,7 @@ class Config
     const OUTPUT_FILE = "output_file_base_dir";
     const WRITE_FORMAT = "write_format";
     const WRITE_FORMAT_CLASS_PREFIX = "write_format_class_prefix";
+    const HANDLER_CLASS_PREFIX =  "handler_class_prefix";
 
     public function __construct()
     {
@@ -67,6 +68,14 @@ class Config
     public function getWriteFormatClassPrefix(): string
     {
         return $this->parseConfig(self::WRITE_FORMAT_CLASS_PREFIX);
+    }
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function getHandlerClassPrefix(): string
+    {
+        return $this->parseConfig(self::HANDLER_CLASS_PREFIX);
     }
 
 }
