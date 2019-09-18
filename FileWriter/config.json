@@ -1,0 +1,6 @@
+{
+  "input_file_base_dir":  "C:\\Users\\Dell\\Desktop\\New folder\\PHPprojects\\FileWriter\\Src\\Utils\\InputFiles\\",
+  "output_file_base_dir": "C:\\Users\\Dell\\Desktop\\New folder\\PHPprojects\\FileWriter\\Src\\Utils\\OutputFiles\\",
+  "available_write_formats" : ["json", "csv", "xml"],
+  "default_write_format" : "json"
+}
