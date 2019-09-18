@@ -4,19 +4,22 @@ namespace FileWriter\Controller;
 use Exception;
 use FileWriter\View\MainView;
 use FileWriter\Utils\Validator;
-use FileWriter\Utils\InputParser;
 
 class MainController
 {
     protected $mainView;
     protected $validator;
-    private $parser;
-
+add
+    /**
+     * MainController constructor.
+     *
+     * Initializes Views
+     * Initializes Validator, used for filename
+     */
     public function __construct()
     {
         $this->mainView = new MainView();
         $this->validator = new Validator();
-        $this->parser = new InputParser();
     }
 
     /**
@@ -30,7 +33,7 @@ class MainController
     /**
      * Shows processing view, handles data
      *
-     * @param string $parameter
+     * @param string $fileName
      * @throws Exception
      */
     public function processingAction(
@@ -40,7 +43,6 @@ class MainController
         $this->mainView->processing($fileName);
         //TODO pass filename to HexagonWriter
     }
-
 
     /**
      * Shows success view

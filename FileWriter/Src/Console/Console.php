@@ -11,6 +11,7 @@ class Console
 
     /**
      * Initializes the controller that is going to be used
+     * Initializes interactiveCli class which interacts with cli
      */
     public function __construct()
     {
@@ -20,6 +21,7 @@ class Console
 
     /**
      * Handles the cli.
+     * Binds console with controller
      */
     public function handle()
     {

@@ -2,44 +2,40 @@
 
 namespace FileWriter\Utils;
 
+use FileWriter\Utils\Validator;
+use Utils\Config;
+
 class FileOperations
 {
     //TODO Config Sets a place
-    private $inputFileName = "";
-    private $outputFileName = "";
+    private $inputFile = "" ;
+    private $outputFile = "";
+    private $config;
 
-    public function setInputFileName(string $inputFileName)
+    public function __construct()
     {
-        $this->inputFileName = $inputFileName;
+        $this->config = new Config();
     }
 
-    public function setOutputFileName(string $outputFileName)
+    public function setInputFile(string $inputFileName)
     {
-        $this->outputFileName = $outputFileName;
+        $this->inputFile =$this->config
+            ->getInputFileBaseDir() . $inputFileName;
     }
 
-    public function exists(string $fileName): bool
+    public function setOutputFile(string $outputFileName)
     {
-        try{
-            if (!file_exists($fileName)){
-                throw new \Exception('Input file does not exist');
-            }
-            return true;
-        } catch (\Exception $e){
-            echo $e->getMessage();
-        }
-        return true;
+        $this->outputFile = $this->config
+                ->getOutputFileBaseDir() . $outputFileName;
     }
 
     public function readFile(): array
     {
-        $this->exists($this->inputFileName);
-        return file($this->inputFileName);
+        return file($this->inputFile);
     }
 
     public function writeFile(string $data)
     {
-        $this->exists($this->outputFileName);
-        file_put_contents($this->outputFileName, $data);
+        file_put_contents($this->outputFile, $data);
     }
 }
