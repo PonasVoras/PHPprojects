@@ -10,12 +10,10 @@ class MainView
     }
 
     public function processing(
-        string $fileName,
-        string $fileFormat)
+        string $fileName)
     {
         echo "\n"."------------------------------";
         echo "\n".'FileName: ' . $fileName;
-        echo "\n".'FileFormat: ' . $fileFormat;
         echo "\n".'Writing operation in process ...';
     }
 

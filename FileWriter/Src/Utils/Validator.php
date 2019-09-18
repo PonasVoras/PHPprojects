@@ -1,13 +1,18 @@
 <?php
 namespace FileWriter\Utils;
 
+use Exception;
+
 class Validator
 {
-    //TODO validate parameters
-    public function validateParameters(array $parameters)
+    const BASE_DIR = __DIR__ . "\..\InputFiles" . "\\";
+
+    public function validateFile(string $fileName)
     {
-        if(empty($parameters) || empty($parameters[0]) || empty($parameters[1])){
-            throw new \Exception('Invalid input parameters');
-        }
+        if(empty($fileName)){
+            throw new Exception('No input filename provided');
+        } elseif (!file_exists(self::BASE_DIR . $fileName . '.txt')){
+            throw new Exception('File does not exist');
+        };
     }
 }

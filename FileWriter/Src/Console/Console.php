@@ -23,7 +23,7 @@ class Console
      */
     public function handle()
     {
-        $this->controller->beginingAction();
+        $this->controller->beginningAction();
         $data = $this->cli->requestData();
         $this->controller->processingAction($data);
         $this->controller->successAction();
