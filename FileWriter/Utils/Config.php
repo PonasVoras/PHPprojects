@@ -12,6 +12,7 @@ class Config
     const INPUT_FILE ="input_file_base_dir";
     const OUTPUT_FILE = "output_file_base_dir";
     const WRITE_FORMAT = "write_format";
+    const WRITE_FORMAT_CLASS_PREFIX = "write_format_class_prefix";
 
     public function __construct()
     {
@@ -57,6 +58,15 @@ class Config
     public function getWriteFormat(): string
     {
         return $this->parseConfig(self::WRITE_FORMAT);
+    }
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    public function getWriteFormatClassPrefix(): string
+    {
+        return $this->parseConfig(self::WRITE_FORMAT_CLASS_PREFIX);
     }
 
 }

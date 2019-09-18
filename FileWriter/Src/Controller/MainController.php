@@ -3,6 +3,7 @@
 namespace FileWriter\Controller;
 
 use Exception;
+use FileWriter\HexagonWriter\Domain\WriteFormatManagement\FormatFactory;
 use FileWriter\Utils\Validator;
 use FileWriter\View\MainView;
 
@@ -43,6 +44,7 @@ class MainController
         $this->validator->validateInput($fileName);
         $this->mainView->processing($fileName);
         //TODO pass filename to HexagonWriter
+
     }
 
     /**

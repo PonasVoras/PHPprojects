@@ -1,6 +1,7 @@
 {
   "input_file_base_dir":  "C:\\Users\\Dell\\Desktop\\New folder\\PHPprojects\\FileWriter\\Src\\InputFiles\\",
   "output_file_base_dir": "C:\\Users\\Dell\\Desktop\\New folder\\PHPprojects\\FileWriter\\Src\\OutputFiles\\",
-  "available_write_formats" : ["json", "csv", "xml"],
-  "write_format" : "json"
+  "write_format_class_prefix": "FileWriter\\HexagonWriter\\Domain\\WriteFormatManagement\\",
+  "write_formats_available" : ["Json", "Csv", "Xml"],
+  "write_format" : "Json"
 }
