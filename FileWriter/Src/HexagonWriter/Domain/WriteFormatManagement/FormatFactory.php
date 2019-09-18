@@ -14,9 +14,8 @@ class FormatFactory
 
     public function build(string $format)
     {
-        $classPrefix =  $this->config->getWriteFormatClassPrefix();
+        $classPrefix = $this->config->getWriteFormatClassPrefix();
         $className = $classPrefix . 'Write'.ucfirst($format);
-        var_dump($className);
         if (class_exists($className)){
             return new $className;
         } else throw new \Exception('Save format not found');
