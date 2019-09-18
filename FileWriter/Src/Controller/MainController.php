@@ -1,15 +1,16 @@
 <?php
+
 namespace FileWriter\Controller;
 
 use Exception;
-use FileWriter\View\MainView;
 use FileWriter\Utils\Validator;
+use FileWriter\View\MainView;
 
 class MainController
 {
     protected $mainView;
     protected $validator;
-add
+
     /**
      * MainController constructor.
      *
@@ -37,9 +38,9 @@ add
      * @throws Exception
      */
     public function processingAction(
-        string $fileName)
-    {
-        $this->validator->validateFile($fileName);
+        string $fileName
+    ) {
+        $this->validator->validateInput($fileName);
         $this->mainView->processing($fileName);
         //TODO pass filename to HexagonWriter
     }

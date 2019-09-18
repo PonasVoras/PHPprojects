@@ -1,6 +1,5 @@
 <?php
 
-
 use FileWriter\Console\Console;
 use Utils\AutoLoader;
 

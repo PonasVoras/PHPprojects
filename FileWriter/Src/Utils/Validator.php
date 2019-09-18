@@ -2,37 +2,31 @@
 namespace FileWriter\Utils;
 
 use Exception;
-use Utils\Config;
 
 class Validator
 {
-    private $config;
+    const NO_FILE_EXCEPTION = 'File does not exist';
+    const NO_INPUT_EXCEPTION = 'No input filename provided';
 
     /**
-     * Initializes config class, that enables
-     * to use constants from the main config file.
-     *
-     * Validator constructor.
-     */
-    public function __construct()
-    {
-        $this->config = new Config();
-    }
-
-    /**
-     * Validates if user input for fileName is valid.
-     *
      * @param string $fileName
      * @throws Exception
      */
-    public function validateFile(string $fileName)
+    public function validateInput(string $fileName)
     {
-        $baseInputFileDir = $this->config->getInputFileBaseDir();
-        $fullFileDir = $baseInputFileDir . $fileName . '.txt';
         if(empty($fileName)){
-            throw new Exception('No input filename provided');
-        } elseif (!file_exists($fullFileDir)){
-            throw new Exception('File does not exist');
-        };
+            throw new Exception(self::NO_INPUT_EXCEPTION);
+        }
+    }
+
+    /**
+     * @param string $filePath
+     * @throws Exception
+     */
+    public function validateFileExists(string $filePath)
+    {
+        if (!file_exists($filePath)){
+            throw new Exception(self::NO_FILE_EXCEPTION);
+        }
     }
 }
