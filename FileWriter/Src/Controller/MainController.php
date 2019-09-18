@@ -44,6 +44,7 @@ class MainController
         $this->validator->validateInput($fileName);
         $this->mainView->processing($fileName);
         //TODO pass filename to HexagonWriter
+
     }
 
     /**
