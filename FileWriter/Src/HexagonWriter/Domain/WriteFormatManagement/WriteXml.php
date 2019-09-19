@@ -18,7 +18,6 @@ class WriteXml implements WriteInterface
     public function __construct()
     {
         $this->fileWriter =  new FileWriterOperations();
-        echo "I will save Xml";
     }
 
     /**
