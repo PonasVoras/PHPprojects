@@ -28,6 +28,10 @@ Brief description:
   - So far, files can be saved with CSV, XML, JSON formats, more can be added
   - It is easily modifiable and readable
   - Spits exceptions if one is not careful
+  
+Possible upgrades:
+  - More user interaction, so that some configuration could be done in CLI
+  - Actual conversion of file data, now files are just written plainly
 
 ```
 
