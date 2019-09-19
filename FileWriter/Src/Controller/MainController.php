@@ -58,7 +58,7 @@ class MainController
         $this->mainView->processing($fileName);
         $this->config->setFileName($fileName);
         $this->simpleCommandBus->execute($this->writeCommand);
-        //$this->simpleCommandBus->execute($this->writeConfigCommand);
+        $this->simpleCommandBus->execute($this->writeConfigCommand);
     }
 
     /**

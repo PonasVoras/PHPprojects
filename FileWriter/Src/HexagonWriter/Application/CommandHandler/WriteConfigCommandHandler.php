@@ -5,16 +5,13 @@ use Exception;
 use FileWriter\HexagonWriter\Domain\CommandHandlerInterface;
 use FileWriter\HexagonWriter\Domain\CommandInterface;
 use FileWriter\HexagonWriter\Domain\WriteFormatManagement\FormatFactory;
-use Utils\Config;
 
 class WriteConfigCommandHandler implements CommandHandlerInterface
 {
-    private $config;
     private $formatFactory;
 
     public function __construct()
     {
-        $this->config = new Config();
         $this->formatFactory = new FormatFactory();
     }
 
@@ -25,16 +22,9 @@ class WriteConfigCommandHandler implements CommandHandlerInterface
      */
     public function handle(CommandInterface $command)
     {
-        $writeFilename = $this->config->getOutputFileBaseDir();
-        $commandName = get_class($command);
-        if (class_exists($commandName)){
-            $command = new $commandName;
-        } else {
-            throw new Exception($commandName . "command does not exist");
-        }
-        $write = $this->formatFactory->build('Json');
-        $write->save();
+        $dataToWrite = $command->data();
+        $writeFormat = $this->formatFactory
+            ->build($dataToWrite['format']);
+        $writeFormat->save($dataToWrite);
     }
-
-    //TODO understand how to handle the command
 }

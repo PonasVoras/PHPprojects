@@ -21,7 +21,8 @@ class WriteJson implements WriteInterface
     public function save(array $data)
     {
         $format = strtolower($data['format']);
-        $data = $data['data'];
-        $this->fileWriter->writeData($data, $format);
+        $body = $data['data'];
+        $name = $data['name'];
+        $this->fileWriter->writeData($body, $format, $name);
     }
 }

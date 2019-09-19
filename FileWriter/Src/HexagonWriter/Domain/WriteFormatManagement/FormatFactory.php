@@ -19,6 +19,6 @@ class FormatFactory
         $className = $classPrefix . 'Write'.ucfirst($format);
         if (class_exists($className)){
             return new $className;
-        } else throw new \Exception('Save format not found');
+        } else throw new \Exception('Write format not implemented yet');
     }
 }

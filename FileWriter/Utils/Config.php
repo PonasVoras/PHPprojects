@@ -15,6 +15,7 @@ class Config
     const INPUT_FILE_DIR ="input_file_base_dir";
     const OUTPUT_FILE_DIR = "output_file_base_dir";
     const WRITE_FORMAT = "write_format";
+    const WRITE_CONFIG_FORMAT = 'write_config_format';
     const WRITE_FORMAT_CLASS_PREFIX = "write_format_class_prefix";
     const HANDLER_CLASS_PREFIX =  "handler_class_prefix";
     const COMMAND_CLASS_PREFIX = "command_class_prefix";
@@ -78,6 +79,15 @@ class Config
      * @return string
      * @throws \Exception
      */
+    public function getConfigWriteFormat(): string
+    {
+        return $this->parseConfig(self::WRITE_CONFIG_FORMAT);
+    }
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
     public function getWriteFormatClassPrefix(): string
     {
         return $this->parseConfig(self::WRITE_FORMAT_CLASS_PREFIX);
@@ -116,5 +126,4 @@ class Config
         $dateTime = $dateTime->format('Y-m-d H:i:s');
         $this->configurate(self::CONFIGURATION_TIME, $dateTime);
     }
-
 }
