@@ -1,20 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dell
- * Date: 9/18/2019
- * Time: 9:02 PM
- */
+
+declare(strict_types=1);
 
 namespace FileWriter\HexagonWriter\Application;
-
 
 use Exception;
 use FileWriter\HexagonWriter\Domain\CommandHandlerInterface;
 use FileWriter\HexagonWriter\Domain\CommandInterface;
 use Utils\Config;
 
-
+/**
+ * Class SimpleCommandBus.
+ * Find the right handler, executes command.
+ *
+ * @package FileWriter\HexagonWriter\Application
+ */
 class SimpleCommandBus implements CommandBusInterface
 {
     private $config;
@@ -24,9 +24,10 @@ class SimpleCommandBus implements CommandBusInterface
         $this->config = new Config();
     }
 
-    // TODO finds the appropriate handler and returns it
-
     /**
+     * Finds the right handler, by command name.
+     *
+     *
      * @param CommandInterface $command
      * @return CommandHandlerInterface|\Exception
      * @throws Exception

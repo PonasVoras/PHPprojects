@@ -1,12 +1,22 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Utils;
 
 use DateTime;
 use FileWriter\Utils\Validator;
 
+/**
+ * Class Config
+ *
+ * @package Utils
+ */
 class Config
 {
     const CONFIG_FILE = __DIR__ . "\..\config.json";
+    const DEFAULT_USER_FILE_FORMAT = '.txt';
+    const CONFIG_NAME = 'Config';
     private $validator;
 
     //Config parameter constants
@@ -39,7 +49,13 @@ class Config
         return $configValue;
     }
 
-    private function configurate(string $parameter,string $value)
+    /**
+     * @param string $parameter
+     * @param string $value
+     */
+    private function configure(
+        string $parameter,
+        string $value)
     {
         $configFile = file_get_contents(self::CONFIG_FILE);
         $configFile= json_decode($configFile, true);
@@ -119,11 +135,15 @@ class Config
         return $this->parseConfig(self::FILENAME);
     }
 
+    /**
+     * @param string $fileName
+     * @throws \Exception
+     */
     public function setFileName(string $fileName)
     {
-        $this->configurate(self::FILENAME, $fileName);
+        $this->configure(self::FILENAME, $fileName);
         $dateTime = new DateTime();
         $dateTime = $dateTime->format('Y-m-d H:i:s');
-        $this->configurate(self::CONFIGURATION_TIME, $dateTime);
+        $this->configure(self::CONFIGURATION_TIME, $dateTime);
     }
 }

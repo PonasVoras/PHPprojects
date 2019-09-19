@@ -1,7 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FileWriter\View;
 
+/**
+ * Class MainView
+ *
+ * @package FileWriter\View
+ */
 class MainView
 {
     public function begin()

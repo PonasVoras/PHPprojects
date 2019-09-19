@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace FileWriter\Controller;
 
 use Exception;
@@ -10,8 +12,14 @@ use FileWriter\Utils\Validator;
 use FileWriter\View\MainView;
 use Utils\Config;
 
+/**
+ * Class MainController
+ *
+ * @package FileWriter\Controller
+ */
 class MainController
 {
+    private $config;
     protected $mainView;
     protected $validator;
     private $simpleCommandBus;
@@ -43,7 +51,7 @@ class MainController
     }
 
     /**
-     * Shows processing view, handles data
+     * Shows processing view, handles data.
      *
      * @param string $fileName
      * @throws Exception
@@ -52,9 +60,10 @@ class MainController
         string $fileName
     ) {
         $this->validator->validateInput($fileName);
-        $filePath = $this->config->getInputFileBaseDir().$fileName.".txt";
+        $filePath = $this->config->getInputFileBaseDir()
+            .$fileName
+            .$this->config::DEFAULT_USER_FILE_FORMAT;
         $this->validator->validateFileExists($filePath);
-
         $this->mainView->processing($fileName);
         $this->config->setFileName($fileName);
         $this->simpleCommandBus->execute($this->writeCommand);

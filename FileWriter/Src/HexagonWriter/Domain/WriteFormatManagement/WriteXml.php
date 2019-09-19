@@ -1,8 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FileWriter\HexagonWriter\Domain\WriteFormatManagement;
 
 use FileWriter\Utils\FileWriterOperations;
 
+/**
+ * Class WriteXml
+ *
+ * @package FileWriter\HexagonWriter\Domain\WriteFormatManagement
+ */
 class WriteXml implements WriteInterface
 {
     private $fileWriter;
@@ -13,11 +21,20 @@ class WriteXml implements WriteInterface
         echo "I will save Xml";
     }
 
+    /**
+     * This method can be used to convert file content to desired format.
+     */
     public function convertDataToXml()
     {
 
     }
 
+    /**
+     * Uses write command data and saves.
+     *
+     * @param array $data
+     * @throws \Exception
+     */
     public function save(array $data)
     {
         $format = strtolower($data['format']);

@@ -1,9 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FileWriter\HexagonWriter\Application;
 
 use FileWriter\HexagonWriter\Domain\CommandInterface;
 
-//TODO has to be implemented by MainController
+/**
+ * Interface CommandBusInterface
+ *
+ * @package FileWriter\HexagonWriter\Application
+ */
 interface CommandBusInterface
 {
     public function execute(CommandInterface $command);

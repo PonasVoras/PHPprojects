@@ -1,9 +1,18 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FileWriter\HexagonWriter\Application\Command;
 
 use FileWriter\HexagonWriter\Domain\CommandInterface;
 use FileWriter\Utils\FileWriterOperations;
 
+/**
+ * Class WriteConfigCommand.
+ * Gets prepared Config data.
+ *
+ * @package FileWriter\HexagonWriter\Application\Command
+ */
 class WriteConfigCommand implements CommandInterface
 {
     private $fileWriterOperations;
@@ -13,10 +22,9 @@ class WriteConfigCommand implements CommandInterface
         $this->fileWriterOperations = new FileWriterOperations();
     }
 
-    public function data(): array
+    public function getPreparedData(): array
     {
-        $data = $this->fileWriterOperations
-            ->prepareConfigData();
+        $data = $this->fileWriterOperations->prepareConfigData();
         return $data;
     }
 }

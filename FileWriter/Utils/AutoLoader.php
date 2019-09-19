@@ -1,7 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Utils;
 
+/**
+ * Class AutoLoader
+ *
+ * @package Utils
+ */
 class AutoLoader
 {
     protected $prefixes = array();
@@ -11,7 +18,17 @@ class AutoLoader
         spl_autoload_register(array($this, 'loadClass'));
     }
 
-    public function addNamespace($prefix, $base_dir, $prepend = false)
+    /**
+     * Adds namespaces to array.
+     *
+     * @param string $prefix
+     * @param string $base_dir
+     * @param bool $prepend
+     */
+    public function addNamespace(
+        string $prefix,
+        string $base_dir,
+        bool $prepend = false)
     {
         // normalize namespace prefix
         $prefix = trim($prefix, '\\') . '\\';
@@ -32,7 +49,13 @@ class AutoLoader
         }
     }
 
-    public function loadClass($class)
+    /**
+     *
+     *
+     * @param $class
+     * @return bool|string
+     */
+    public function loadClass(string $class)
     {
         // the current namespace prefix
         $prefix = $class;
@@ -57,7 +80,14 @@ class AutoLoader
         return false;
     }
 
-    protected function loadMappedFile($prefix, $relative_class)
+    /**
+     * @param $prefix
+     * @param $relative_class
+     * @return bool|string
+     */
+    protected function loadMappedFile(
+        string $prefix,
+        string $relative_class)
     {
         // are there any base directories for this namespace prefix?
         if (isset($this->prefixes[$prefix]) === false) {
@@ -81,7 +111,11 @@ class AutoLoader
         return false;
     }
 
-    protected function requireFile($file)
+    /**
+     * @param string $file
+     * @return bool
+     */
+    protected function requireFile(string $file)
     {
         if (file_exists($file)) {
             require $file;

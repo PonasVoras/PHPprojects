@@ -1,9 +1,17 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FileWriter\Console;
 
 use FileWriter\Controller\MainController;
 use Utils\InteractiveCli;
 
+/**
+ * Class Console
+ *
+ * @package FileWriter\Console
+ */
 class Console
 {
     protected $controller;
@@ -22,6 +30,8 @@ class Console
     /**
      * Handles the cli.
      * Binds console with controller
+     *
+     * @throws \Exception
      */
     public function handle()
     {

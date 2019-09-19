@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FileWriter\HexagonWriter\Application\CommandHandler;
 
 use Exception;
@@ -6,6 +9,11 @@ use FileWriter\HexagonWriter\Domain\CommandHandlerInterface;
 use FileWriter\HexagonWriter\Domain\CommandInterface;
 use FileWriter\HexagonWriter\Domain\WriteFormatManagement\FormatFactory;
 
+/**
+ * Class WriteCommandHandler
+ *
+ * @package FileWriter\HexagonWriter\Application\CommandHandler
+ */
 class WriteCommandHandler implements CommandHandlerInterface
 {
     private $formatFactory;
@@ -22,9 +30,8 @@ class WriteCommandHandler implements CommandHandlerInterface
      */
     public function handle(CommandInterface $command)
     {
-        $dataToWrite = $command->data();
-        $writeFormat = $this->formatFactory
-            ->build($dataToWrite['format']);
+        $dataToWrite = $command->getPreparedData();
+        $writeFormat = $this->formatFactory->build($dataToWrite['format']);
         $writeFormat->save($dataToWrite);
     }
 }
