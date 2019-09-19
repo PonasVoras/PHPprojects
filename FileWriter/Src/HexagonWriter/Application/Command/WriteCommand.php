@@ -2,29 +2,21 @@
 namespace FileWriter\HexagonWriter\Application\Command;
 
 use FileWriter\HexagonWriter\Domain\CommandInterface;
-use Utils\Config;
-use FileWriter\Utils\FileOperations;
+use FileWriter\Utils\FileWriterOperations;
 
 class WriteCommand implements CommandInterface
 {
-    private $config;
-    private $fileOperations;
+    private $fileWriterOperations;
 
     public function __construct()
     {
-        $this->config = new Config();
-        $this->fileOperations = new FileOperations();
+        $this->fileWriterOperations = new FileWriterOperations();
     }
 
-    public function data(): string
+    public function data(): array
     {
-        $filePath = $this->config
-            ->getInputFileBaseDir()
-            . $this->config
-            ->getFileName();
-        $data = $this->fileOperations->readFile($filePath);
-        echo "I am the write command";
-        var_dump($data);
+        $data = $this->fileWriterOperations
+            ->prepareData();
         return $data;
     }
 }

@@ -1,25 +1,27 @@
 <?php
 namespace FileWriter\HexagonWriter\Domain\WriteFormatManagement;
 
-use FileWriter\Utils\FileOperations;
-use Utils\Config;
+use FileWriter\Utils\FileWriterOperations;
 
 class WriteXml implements WriteInterface
 {
-    private $fileOperations;
+    private $fileWriter;
 
     public function __construct()
     {
-        $this->fileOperations = new FileOperations();
-        $this->config = new Config();
+        $this->fileWriter =  new FileWriterOperations();
         echo "I will save Xml";
     }
 
-    public function save(string $data)
+    public function convertDataToXml()
     {
-        $filePath = $this->config
-                ->getOutputFileBaseDir()
-            . $this->config->getFileName() . ".xml";
-        $this->fileOperations->writeFile($filePath,$data);
+
+    }
+
+    public function save(array $data)
+    {
+        $format = strtolower($data['format']);
+        $data = $data['data'];
+        $this->fileWriter->writeData($data, $format);
     }
 }

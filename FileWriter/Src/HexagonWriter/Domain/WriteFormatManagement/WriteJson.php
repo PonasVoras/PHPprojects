@@ -1,26 +1,27 @@
 <?php
 namespace FileWriter\HexagonWriter\Domain\WriteFormatManagement;
 
-use FileWriter\Utils\FileOperations;
-use Utils\Config;
+use FileWriter\Utils\FileWriterOperations;
 
 class WriteJson implements WriteInterface
 {
-    private $fileOperations;
-    private $config;
+    private $fileWriter;
 
     public function __construct()
     {
-        $this->fileOperations = new FileOperations();
-        $this->config = new Config();
+        $this->fileWriter =  new FileWriterOperations();
         echo "I will save Json";
     }
 
-    public function save(string $data)
+    public function convertDataToJson()
     {
-        $filePath = $this->config
-                ->getOutputFileBaseDir()
-            . $this->config->getFileName() . ".json";
-        $this->fileOperations->writeFile($filePath,$data);
+
+    }
+
+    public function save(array $data)
+    {
+        $format = strtolower($data['format']);
+        $data = $data['data'];
+        $this->fileWriter->writeData($data, $format);
     }
 }

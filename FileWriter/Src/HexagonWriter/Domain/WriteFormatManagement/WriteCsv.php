@@ -1,26 +1,27 @@
 <?php
 namespace FileWriter\HexagonWriter\Domain\WriteFormatManagement;
 
-use FileWriter\Utils\FileOperations;
-use Utils\Config;
+use FileWriter\Utils\FileWriterOperations;
 
 class WriteCsv implements WriteInterface
 {
-    private $fileOperations;
-    private $config;
+    private $fileWriter;
 
     public function __construct()
     {
-        $this->fileOperations = new FileOperations();
-        $this->config = new Config();
+        $this->fileWriter =  new FileWriterOperations();
         echo "I will save Csv";
     }
 
-    public function save(string $data)
+    public function convertDataToCsv()
     {
-        $filePath = $this->config
-            ->getOutputFileBaseDir()
-            . $this->config->getFileName() . ".csv";
-        $this->fileOperations->writeFile($filePath,$data);
+
+    }
+
+    public function save(array $data)
+    {
+        $format = strtolower($data['format']);
+        $data = $data['data'];
+        $this->fileWriter->writeData($data, $format);
     }
 }

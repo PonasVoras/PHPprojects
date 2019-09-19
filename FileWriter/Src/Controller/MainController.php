@@ -54,8 +54,8 @@ class MainController
         $this->validator->validateInput($fileName);
         $filePath = $this->config->getInputFileBaseDir().$fileName.".txt";
         $this->validator->validateFileExists($filePath);
-        $this->mainView->processing($fileName);
 
+        $this->mainView->processing($fileName);
         $this->config->setFileName($fileName);
         $this->simpleCommandBus->execute($this->writeCommand);
         //$this->simpleCommandBus->execute($this->writeConfigCommand);

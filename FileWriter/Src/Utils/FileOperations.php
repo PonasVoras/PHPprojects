@@ -6,7 +6,7 @@ class FileOperations
 {
     public function readFile(string $filePath): string
     {
-        return file_get_contents($filePath . ".txt");
+        return file_get_contents($filePath);
     }
 
     public function writeFile(string $filePath, string $data)
