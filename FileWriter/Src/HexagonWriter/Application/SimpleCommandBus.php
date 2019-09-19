@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace FileWriter\HexagonWriter\Application;
 
 use Exception;
+use FileWriter\HexagonWriter\Application\CommandHandler\HandlerFactory;
 use FileWriter\HexagonWriter\Domain\CommandHandlerInterface;
 use FileWriter\HexagonWriter\Domain\CommandInterface;
-use Utils\Config;
 
 /**
  * Class SimpleCommandBus.
@@ -17,11 +17,11 @@ use Utils\Config;
  */
 class SimpleCommandBus implements CommandBusInterface
 {
-    private $config;
+    private $handlerFactory;
 
     public function __construct()
     {
-        $this->config = new Config();
+        $this->handlerFactory = new HandlerFactory();
     }
 
     /**
@@ -34,20 +34,7 @@ class SimpleCommandBus implements CommandBusInterface
      */
     public function resolveHandler(CommandInterface $command)
     {
-        // TODO make it use the the factory
-        $commandName = get_class($command);
-        $commandName = explode("\\", $commandName);
-        $commandName = array_reverse($commandName)[0];
-
-        $handlerPrefix = $this->config->getHandlerClassPrefix();
-        $handlerName = $handlerPrefix .  $commandName . 'Handler';
-
-        if (class_exists($handlerName)){
-            return new $handlerName;
-        } else {
-            throw new Exception($handlerName . ' Handler does not exist');
-        }
-
+        return $this->handlerFactory->build($command);
     }
 
     /**

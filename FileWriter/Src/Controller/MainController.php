@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace FileWriter\Controller;
 
 use Exception;
-use FileWriter\HexagonWriter\Application\Command\WriteConfigCommand;
 use FileWriter\HexagonWriter\Application\Command\WriteCommand;
+use FileWriter\HexagonWriter\Application\Command\WriteConfigCommand;
 use FileWriter\HexagonWriter\Application\SimpleCommandBus;
 use FileWriter\Utils\Validator;
 use FileWriter\View\MainView;
@@ -61,8 +61,8 @@ class MainController
     ) {
         $this->validator->validateInput($fileName);
         $filePath = $this->config->getInputFileBaseDir()
-            .$fileName
-            .$this->config::DEFAULT_USER_FILE_FORMAT;
+            . $fileName
+            . $this->config::DEFAULT_USER_FILE_FORMAT;
         $this->validator->validateFileExists($filePath);
         $this->mainView->processing($fileName);
         $this->config->setFileName($fileName);
